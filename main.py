@@ -1,7 +1,5 @@
-# Passo a passo do projeto
+# Código principal do projeto
 link = 'https://dlp.hashtagtreinamentos.com/python/intensivao/login'
-
-# pip install pyautogui
 
 import pyautogui # biblioteca que realiza comandos do teclado, como apertar uma tecla ou clicar com o mouse
 import time
@@ -10,7 +8,7 @@ import time
 # apertar uma tecla: pyautogui.press
 # rolar: pyautogui.scroll(numero positivo para rolar pra cima, negativo para ir pra baixo)
 
-pyautogui.PAUSE = 0.5
+pyautogui.PAUSE = 0.5 # intervalo entre um comando e outro
 
 # 1 - Entrar no sistema da empresa
 # comandos para abrir o navegador e entra no sistema
@@ -31,6 +29,7 @@ pyautogui.press("tab")
 pyautogui.press("enter")
 time.sleep(10)
 print(pyautogui.position())
+
 # 3 - Importar a base de dados
 import pandas
 
@@ -43,23 +42,18 @@ for linha in tabela.index:
     pyautogui.click(x=539, y=289)
 
     #codigo
-    codigo = tabela.loc[linha, "codigo"]
     pyautogui.write(str(tabela.loc[linha, "codigo"]))
     pyautogui.press("tab")
     #marca
-    marca = tabela.loc[linha, "marca"]
     pyautogui.write(str(tabela.loc[linha, "marca"]))
     pyautogui.press("tab")
     #tipo
-    tipo = tabela.loc[linha, "tipo"]
     pyautogui.write(str(tabela.loc[linha, "tipo"]))
     pyautogui.press("tab")
     #categoria
-    categoria = tabela.loc[linha, "categoria"]
     pyautogui.write(str(tabela.loc[linha, "categoria"]))
     pyautogui.press("tab")
     #preço
-    preco_unitario = str(tabela.loc[linha, "preco_unitario"])
     pyautogui.write(str(tabela.loc[linha, "preco_unitario"]))
     pyautogui.press("tab")
     #custo
@@ -73,5 +67,4 @@ for linha in tabela.index:
         pyautogui.press("tab")
 
     pyautogui.press("enter")
-    #       5.0pyautogui.click(x=1808, y=980)
     pyautogui.scroll(5000)
